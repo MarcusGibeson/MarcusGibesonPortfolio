@@ -20,5 +20,20 @@ public class HomepageController {
     public String Homepage() {
         return "homepage";
     }
+
+    @GetMapping("/skills")
+    public String Skills() {
+        return "skills";
+    }
+
+    @GetMapping("/aboutMe")
+    public String AboutMe() {
+        return "aboutMe";
+    }
+
+    @GetMapping("/projects") 
+    public String Projects() {
+        return "projects";
+    }
     
 }

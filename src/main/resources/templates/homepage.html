@@ -8,7 +8,9 @@
       //Load content function for dynamic web pages
         function loadContent(fragmentName) {
             var url = '/' + fragmentName;
-        
+            
+            
+
             fetch(url)
                 .then(function (response) {
                     return response.text();
@@ -37,10 +39,11 @@
             document.getElementById('homepage-link').addEventListener('click', handleClickEvent);
             document.getElementById('aboutMe-link').addEventListener('click',handleClickEvent);
             document.getElementById('projects-link').addEventListener('click', handleClickEvent);
+            document.getElementById('skills-link').addEventListener('click',handleClickEvent);
         });
     </script>
     <!-- CSS Style -->
-    <link rel="stylesheet" th:href="@{/css/homepage.css}" />
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
 
 
     <!-- Tab title -->
@@ -48,30 +51,40 @@
 </head>
 
 <body>
-    
-    <nav>
-        <section id="navigation">
-            <div>
-                <a th:href="@{/skills}" id="skills-link">
-                    <span class="navigation">Skills</span>
+    <section id="sidebar">
+		<ul class="side-menu top">
+			<li class="active">
+				<a th:href="@{/homepage}" id="homepage-link" onclick="loadContent('homepage');">
+                    <span class="text">Homepage</span>
                 </a>
-            </div>
-           
-            <div>
-                <a th:href="@{/aboutMe}" id ="homepage-link">
+			</li>
+			<li>
+				<a th:href="@{/skills}" id="skills-link" onclick="loadContent('skills');">
+                    <span class="text">Skills</span>
+                </a>
+			</li>
+			<li>
+                <a th:href="@{/aboutMe}" id ="aboutMe-link" onclick="loadContent('aboutMe');">
                     <span class="navigation">About me</span>
                 </a>
-            </div>
-
-            <div>
-                <a th:href="@{/projects}" id="projects-link">
+			</li>
+			<li>
+				<a th:href="@{/projects}" id="projects-link" onclick="loadContent('projects');">
                     <span class="navigation">Projects</span>
                 </a>
+			</li>
+		</ul>
+    </section>
+    <section id="content">
+        <section id="main">
+            <div id="dynamic-content">
+                <main>
+                    <h1>Marcus Gibeson</h1>
+                </main>
             </div>
         </section>
-    </nav>
+    </section>
     
-    <h1>Marcus Gibeson</h1>
 
 
 </body>
