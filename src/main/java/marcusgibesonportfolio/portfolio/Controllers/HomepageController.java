@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import jakarta.annotation.Resource;
 import marcusgibesonportfolio.portfolio.Services.PortfolioService;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @Controller
 public class HomepageController {
@@ -16,9 +18,9 @@ public class HomepageController {
         this.portfolioService = portfolioService;
     }
 
-    @GetMapping ({"","/","/homepage"})
-    public String Homepage() {
-        return "homepage";
+    @GetMapping ({"","/","/navigation"})
+    public String Navigation() {
+        return "navigation";
     }
 
     @GetMapping("/skills")
@@ -34,6 +36,11 @@ public class HomepageController {
     @GetMapping("/projects") 
     public String Projects() {
         return "projects";
+    }
+    
+    @GetMapping("/homepage")
+    public String Homepage() {
+        return "homepage";
     }
     
 }

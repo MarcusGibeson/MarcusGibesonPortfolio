@@ -3,89 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <script>
-      //Load content function for dynamic web pages
-        function loadContent(fragmentName) {
-            var url = '/' + fragmentName;
-            
-            
-
-            fetch(url)
-                .then(function (response) {
-                    return response.text();
-                })
-                .then(function (html) {
-                    var contentContainer = document.getElementById('dynamic-content');
-                    contentContainer.innerHTML = html;
-                })
-                .catch(function(error) {
-                    console.log('Error', error);
-                })
-        }
-
-        //add eventlistener to monitor dynamic-content switch
-        document.addEventListener('DOMContentLoaded', function() {
-            var contentContainer = document.getElementById('dynamic-content');
-            var defaultContent = contentContainer.innerHTML;
-
-            function handleClickEvent(event) {
-                event.preventDefault();
-                var fragmentName = event.target.getAttribute('data-fragment');
-                loadContent(fragmentName);
-            }
-            
-            //different fragments connected eventListener with link
-            document.getElementById('homepage-link').addEventListener('click', handleClickEvent);
-            document.getElementById('aboutMe-link').addEventListener('click',handleClickEvent);
-            document.getElementById('projects-link').addEventListener('click', handleClickEvent);
-            document.getElementById('skills-link').addEventListener('click',handleClickEvent);
-        });
-    </script>
-    <!-- CSS Style -->
-    <link rel="stylesheet" th:href="@{/css/style.css}" />
-
-
-    <!-- Tab title -->
     <title>Marcus Gibeson Portfolio</title>
 </head>
 
 <body>
-    <section id="sidebar">
-		<ul class="side-menu top">
-			<li class="active">
-				<a th:href="@{/homepage}" id="homepage-link" onclick="loadContent('homepage');">
-                    <span class="text">Homepage</span>
-                </a>
-			</li>
-			<li>
-				<a th:href="@{/skills}" id="skills-link" onclick="loadContent('skills');">
-                    <span class="text">Skills</span>
-                </a>
-			</li>
-			<li>
-                <a th:href="@{/aboutMe}" id ="aboutMe-link" onclick="loadContent('aboutMe');">
-                    <span class="navigation">About me</span>
-                </a>
-			</li>
-			<li>
-				<a th:href="@{/projects}" id="projects-link" onclick="loadContent('projects');">
-                    <span class="navigation">Projects</span>
-                </a>
-			</li>
-		</ul>
-    </section>
-    <section id="content">
-        <section id="main">
-            <div id="dynamic-content">
-                <main>
-                    <h1>Marcus Gibeson</h1>
-                </main>
+    <section class="main">
+        <div class="container">
+            <div id="box">
+                <p>This is the home page</p>
             </div>
-        </section>
+        </div>
     </section>
-    
-
 
 </body>
 </html>
